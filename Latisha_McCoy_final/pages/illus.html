@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Illustrations</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+	</head>
+	<body>
+		<div>
+      
+         <header>
+            <a href="../index.html"> <img src="../images/banner2.png" class="header"> </a>
+          </header>
+
+
+          <div class="navbar" id="myNavbar">
+          <a href="../index.html" >Prints</a>
+          <a href="illus.html" >Illustrations</a>
+          <a href="aboutme.html" >About Me</a>
+          <a href="help.html" >Helpful Art Tips</a>
+          <a href="contact.html" >Contact Me</a>
+          <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+    
+      </div>
+
+      <h1>Illustrations</h1>
+      <div class="pgtitle">
+      Other illustrations made using Procreate.
+      </div>
+    
+
+    <!---code edited from freecodecamp.org--->
+  <!----first row of thumbnails imgs--->
+  <div class="row">
+    <div class="col">
+       <img src="../images/selfportrait_thumb.jpg" onclick="openLightbox();toSlide(1)" class="hover-shadow preview" alt="Self Portrait" /> 
+       <p class="title2">Self Portrait</p>
+    </div>
+     
+     
+       <div class="col">
+       <img src="../images/dean1_thumb.jpg" onclick="openLightbox();toSlide(2)" class="hover-shadow preview" alt="Kick It." />
+       <p class="title2">Kick It</p>
+
+      </div>
+     
+  
+    <div class="col">
+       <img src="../images/taeyongie_thumb.jpg" onclick="openLightbox();toSlide(3)" class="hover-shadow preview" alt="Lee Taeyong" />
+        <p class="title2">Lee Taeyong</p>
+   </div>
+  </div>    
+
+    
+ 
+
+
+<!----second row of thumbnail images--->
+  <div class="row">
+    <div class="col">
+       <img src="../images/sunset_thumb.jpg" onclick="openLightbox();toSlide(4)" class="hover-shadow preview" alt="At Sunset" /> 
+        <p class="title2">At Sunset</p>
+      
+    </div>
+
+    <div class="col">
+       <img src="../images/apollo2_thumb.jpg" onclick="openLightbox();toSlide(5)" class="hover-shadow preview" alt="Walk in the Park" /> 
+       
+        <p class="title2">Walk in the Park</p>
+      
+    </div>
+
+    <div class="col">
+       <img src="../images/heart_thumb.jpg" onclick="openLightbox();toSlide(6)" class="hover-shadow preview" alt="Hearts 4 U." /> 
+        <p class="title2">Hearts 4 U</p>
+      
+    </div>
+  </div>
+
+
+<!----the big images inside the lightbox--->
+  <div id="Lightbox" class="modal">
+  
+    <span class="close pointer" onclick="closeLightbox()">&times;</span>
+    <div class="modal-content">
+      <div class="slide">
+        <img src="../images/selfportrait.jpg" class="image-slide" alt="Self Portrait." />
+      </div>
+      <div class="slide">
+        <img src="../images/dean1.jpg" class="image-slide" alt="Kick It." />
+      </div>    
+      <div class="slide">
+        <img src="../images/Taeyongie.jpg" class="image-slide" alt="Lee Taeyong." />
+      </div>
+
+      <div class="slide">
+        <img src="../images/sunset.jpg" class="image-slide" alt="Sunset." />
+      </div>
+      <div class="slide">
+        <img src="../images/apollo2.jpg" class="image-slide" alt="Walk in the Park." />
+      </div>    
+      <div class="slide">
+        <img src="../images/Heart.jpg" class="image-slide" alt="Hearts 4 U." />
+      </div>
+
+
+<!---next and prev buttons-->
+      <a class="previous" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+
+<!----thumbnails on the bottom of the gallery--->
+      <div class="dots">
+        <div class="col">
+          <img src="../images/selfportrait_thumb.jpg" class="modal-preview hover-shadow" onclick="toSlide(1)" alt="Self Portrait." />
+        </div>
+        <div class="col">
+          <img src="../images/dean1_thumb.jpg" class="modal-preview hover-shadow" onclick="toSlide(2)" alt="Kick It." />
+        </div>
+        <div class="col">
+          <img src="../images/taeyongie_thumb.jpg" class="modal-preview hover-shadow" onclick="toSlide(3)" alt="Lee Taeyong" />
+        </div>
+        <div class="col">
+          <img src="../images/sunset_thumb.jpg" class="modal-preview hover-shadow" onclick="toSlide(4)" alt="Sunset." />
+        </div>
+        <div class="col">
+          <img src="../images/apollo2_thumb.jpg" class="modal-preview hover-shadow" onclick="toSlide(5)" alt="Walk in the Park." />
+        </div>
+        <div class="col">
+          <img src="../images/Heart_thumb.jpg" class="modal-preview hover-shadow" onclick="toSlide(6)" alt="Hearts 4 U" />
+        </div>
+      </div>
+    </div> 
+  </div>
+
+<div class="footer">
+      <p>Thank you for visiting! Copyright 2021 Latisha McCoy</p>
+    </div>
+  
+  <script>
+
+    //page response script//
+
+    function myFunction() {
+     var x = document.getElementById("myNavbar");
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+   }
+ }
+  
+
+
+  //script for gallery box//
+    let slideIndex = 1;
+    showSlide(slideIndex);
+    
+    function openLightbox() {
+      document.getElementById('Lightbox').style.display = 'block';
+    }
+    
+    function closeLightbox() {
+      document.getElementById('Lightbox').style.display = 'none';
+    }
+    
+    function changeSlide(n) {
+      showSlide(slideIndex += n);
+    }
+    
+    function toSlide(n) {
+      showSlide(slideIndex = n);
+    }
+    
+    function showSlide(n) {
+      const slides = document.getElementsByClassName('slide');
+      let modalPreviews = document.getElementsByClassName('modal-preview');
+    
+      if (n > slides.length) {
+        slideIndex = 1; 
+      }
+      
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+    
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      
+      for (let i = 0; i < modalPreviews.length; i++) {
+        modalPreviews[i].className = modalPreviews[i].className.replace(' active', '');
+      }
+      
+      slides[slideIndex - 1].style.display = 'block';
+      modalPreviews[slideIndex - 1].className += ' active';
+    }
+ 
+//page response script//
+
+    function myFunction() {
+     var x = document.getElementById("myNavbar");
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+   }
+  }
+  </script>
+</body>
+</html>
